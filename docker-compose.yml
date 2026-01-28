@@ -35,10 +35,12 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: rose-cnpj-backend
+    env_file:
+      - ./backend/.env
     ports:
       - "3001:3001"
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
       PORT: 3001
       REDIS_HOST: redis
       REDIS_PORT: 6379
@@ -47,19 +49,14 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-rose_cnpj}
-      BRASIL_API_URL: ${BRASIL_API_URL:-https://brasilapi.com.br/api/cnpj/v1}
-      TAVILY_API_KEY: ${TAVILY_API_KEY}
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
-      LLM_PROVIDER: ${LLM_PROVIDER:-openai}
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
+      # As demais variáveis (BRASIL_API_URL, TAVILY_API_KEY, OPENAI_API_KEY, LLM_PROVIDER, etc.)
+      # são carregadas do arquivo ./backend/.env via env_file acima.
     depends_on:
       redis:
         condition: service_healthy
       postgres:
         condition: service_healthy
-    command: npm run start:dev
+    # Usa o comando padrão do Dockerfile: node dist/main
 
   frontend:
     build:
@@ -69,15 +66,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
       NEXT_PUBLIC_API_URL: http://localhost:3001
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-      - /app/.next
     depends_on:
       - backend
-    command: npm run dev
+    # Usa o comando padrão do Dockerfile: node server.js
 
 volumes:
   redis-data:

@@ -173,7 +173,7 @@ export default function ChatWindow({ conversationId }: ChatWindowProps) {
 
   return (
     <div className="flex flex-col h-full bg-transparent text-slate-100">
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="flex-1 min-h-0 overflow-y-auto p-3 md:p-4">
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-slate-400">
             <div className="text-center">
@@ -189,13 +189,13 @@ export default function ChatWindow({ conversationId }: ChatWindowProps) {
             </div>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             {messages.map((message) => (
               <Message key={message.id} message={message} />
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-slate-800/80 rounded-lg p-4 max-w-2xl shadow-lg">
+                <div className="bg-slate-800/80 rounded-lg p-3 md:p-4 max-w-full md:max-w-2xl shadow-lg">
                   <div className="flex space-x-2">
                     <div className="w-2 h-2 bg-slate-300 rounded-full animate-bounce"></div>
                     <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
@@ -208,7 +208,7 @@ export default function ChatWindow({ conversationId }: ChatWindowProps) {
           </div>
         )}
       </div>
-      <div className="border-t border-slate-800/80 bg-slate-950/80 backdrop-blur-sm p-4">
+      <div className="border-t border-slate-800/80 bg-slate-950/80 backdrop-blur-sm p-4 shrink-0">
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <input
             type="text"

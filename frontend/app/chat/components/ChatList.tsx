@@ -72,18 +72,18 @@ export default function ChatList({
   };
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
-      <div className="p-4 border-b border-gray-200">
+    <div className="w-full md:w-64 bg-slate-950/80 border-b md:border-b-0 md:border-r border-slate-800 flex flex-col">
+      <div className="p-4 border-b border-slate-800">
         <button
           onClick={onNewConversation}
-          className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+          className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors text-sm md:text-base"
         >
           + Nova Conversa
         </button>
       </div>
       <div className="flex-1 overflow-y-auto">
         {conversations.length === 0 ? (
-          <div className="p-4 text-gray-500 text-sm text-center">
+          <div className="p-4 text-slate-400 text-sm text-center">
             Nenhuma conversa ainda
           </div>
         ) : (
@@ -93,8 +93,8 @@ export default function ChatList({
                 key={conv.id}
                 className={`group flex items-center justify-between px-4 py-2 rounded-lg mb-1 transition-colors ${
                   currentConversationId === conv.id
-                    ? 'bg-blue-100 text-blue-900'
-                    : 'hover:bg-gray-100 text-gray-700'
+                    ? 'bg-blue-600/20 text-blue-100'
+                    : 'hover:bg-slate-800/80 text-slate-200'
                 }`}
               >
                 <button
@@ -104,7 +104,7 @@ export default function ChatList({
                   <div className="text-sm font-medium truncate">
                     {conv.title || `Conversa ${conv.id.split('_')[1]}`}
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">
+                  <div className="text-xs text-slate-400 mt-1">
                     {formatDate(conv.updatedAt)}
                   </div>
                 </button>

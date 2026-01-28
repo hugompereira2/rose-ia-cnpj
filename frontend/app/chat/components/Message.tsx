@@ -18,7 +18,7 @@ export default function Message({ message }: MessageProps) {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       <div
-        className={`max-w-2xl rounded-2xl p-4 md:p-5 shadow-lg ${
+        className={`max-w-full md:max-w-2xl rounded-2xl p-3 md:p-5 shadow-lg ${
           isUser
             ? 'bg-blue-600 text-white'
             : 'bg-slate-900/80 text-slate-100 border border-slate-700/80 backdrop-blur-sm'

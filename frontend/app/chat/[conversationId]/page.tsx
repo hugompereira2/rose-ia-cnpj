@@ -254,7 +254,7 @@ export default function ChatPage({ params }: PageProps) {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-black">
       <ChatList
         conversations={conversations}
         currentConversationId={currentConversationId}
@@ -266,16 +266,16 @@ export default function ChatPage({ params }: PageProps) {
         {currentConversationId ? (
           <ChatWindow conversationId={currentConversationId} />
         ) : (
-          <div className="flex items-center justify-center h-full text-gray-500">
-            <div className="text-center">
+          <div className="flex items-center justify-center h-full text-slate-300 px-4 py-8">
+            <div className="text-center max-w-md">
               <h2 className="text-xl font-semibold mb-2">
                 🌹 Olá! Eu sou a Rose
               </h2>
               <p className="text-sm mb-2">
-                Clique em "Nova Conversa" para começar
+                Clique em &quot;Nova Conversa&quot; para começar
               </p>
               {backendAvailable === false && (
-                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-xs text-yellow-800 max-w-md">
+                <div className="mt-4 p-3 bg-yellow-950/40 border border-yellow-700/60 rounded-lg text-xs text-yellow-100 max-w-md">
                   <p className="font-semibold mb-1">⚠️ Backend não disponível</p>
                   <p>
                     O sistema está usando armazenamento local. Para funcionalidades completas,

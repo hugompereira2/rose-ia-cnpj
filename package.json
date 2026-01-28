@@ -1,0 +1,12 @@
+{
+  "name": "rose-ia-cnpj",
+  "version": "1.0.0",
+  "description": "Agente de Enriquecimento de CNPJ com IA",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build",
+    "test": "cd backend && npm run test"
+  }
+}

@@ -2,8 +2,13 @@
 
 Sistema completo para enriquecer dados de CNPJ utilizando **dados oficiais**, **busca web filtrada** (score ≥ 0.8) e uma **IA conversacional** com personalidade Rose, com persistência em banco de dados e observabilidade de ponta a ponta.
 
-![Preview da interface da Rose](frontend/public/preview_desktop.png)
-![Preview da interface da Rose](frontend/public/preview_mobile.png)
+## 🖥️📱 Preview da Interface
+
+<p align="center">
+  <img src="frontend/public/preview_desktop.png" alt="Preview Desktop" width="65%" />
+  <img src="frontend/public/preview_mobile.png" alt="Preview Mobile" width="25%" />
+</p>
+
 
 ---
 
